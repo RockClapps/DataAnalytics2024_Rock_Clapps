@@ -23,8 +23,12 @@ par(pty="s")
 qqnorm(EPI); qqline(EPI)
 
 x<-seq(30,95,1)
+x
 qqplot(qt(ppoints(250), df = 5), x, xlab = "Q-Q plot for tdsn")
 qqline(x)
+
+qqplot(EPI, DALY)
+qqline(DALY)
 
 #other data
 #GRUMP_data <- read.csv("./Data/GPW3_GRUMP_SummaryInformation_2010.csv")
