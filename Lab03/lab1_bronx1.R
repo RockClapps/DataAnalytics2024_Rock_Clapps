@@ -1,6 +1,8 @@
 library(gdata) 
+library(readxl)
 #faster xls reader but requires perl!
-bronx1<-read.xls(file.choose(),pattern="BOROUGH",stringsAsFactors=FALSE,sheet=1,perl="<SOMEWHERE>/perl/bin/perl.exe") 
+#bronx1<-read_xls("rollingsales_bronx.xls",pattern="BOROUGH",stringsAsFactors=FALSE,sheet=1) 
+bronx1<-read_xls("rollingsales_bronx.xls", skip = 4, .name_repair = "universal") 
 bronx1<-bronx1[which(bronx1$GROSS.SQUARE.FEET!="0" & bronx1$LAND.SQUARE.FEET!="0" & bronx1$SALE.PRICE!="$0"),]
 
 #alternate
